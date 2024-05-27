@@ -1,0 +1,14 @@
+{
+  "name": "@service-connect/root",
+  "description": "ECS Service Connectデプロイ用のサンプルプロジェクト",
+  "private": true,
+  "author": "pphos",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:api": "npm run start:dev -w @service-connect/backend",
+    "dev:app": "npm run dev -w @service-connect/frontend"
+  }
+}

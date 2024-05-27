@@ -1,0 +1,24 @@
+services:
+  frontend:
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/next-frontend
+    platform: linux/arm64
+    container_name: next-frontend
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      target: production
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+
+  backend:
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/nest-backend
+    platform: linux/arm64
+    container_name: nest-backend
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: production
+    ports:
+      - "3001:3001"
